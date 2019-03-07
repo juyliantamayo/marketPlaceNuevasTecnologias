@@ -29,7 +29,7 @@ public class carritoEntity implements Serializable {
     *definicion de variable cantidad
      */
     @Column(name = "cantidad")
-    private long cantidad;
+    private Long cantidad;
     /*
     *definicion de variable valor total
      */
@@ -76,11 +76,11 @@ public class carritoEntity implements Serializable {
         this.idProducto = idProducto;
     }
 
-    public long getCantidad() {
+    public Long getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(long cantidad) {
+    public void setCantidad(Long cantidad) {
         this.cantidad = cantidad;
     }
 

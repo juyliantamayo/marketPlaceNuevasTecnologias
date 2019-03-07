@@ -25,7 +25,7 @@ public class productoLogic {
       List<productoEntity> productos =   persistence.encontrarTodos();
       return productos;
     }
-    public productoEntity obtenerProducto(Long Id){
+    public productoEntity obtenerProducto(Long Id) throws IllegalAccessException{
        
         
         
@@ -33,6 +33,7 @@ public class productoLogic {
         if (producto==null) {
             throw new IllegalAccessException("el problema");
         }
+        return producto;
     }
     public void insertarProducto(){
     
