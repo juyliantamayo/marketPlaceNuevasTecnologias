@@ -30,11 +30,12 @@ public class facturaEntity implements Serializable {
     *definicion de variable total de Factura
      */
     @Column(name = "total_factura")
-    private long totalFactura;
+    private Long totalFactura;
      /*
     *definicion de variable fecha de la factura
     */
     @Column (name = "fecha")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fecha;
      /*
     *definicion de variable fecha de la factura
@@ -68,11 +69,11 @@ public class facturaEntity implements Serializable {
         this.idCarrito = idCarrito;
     }
 
-    public long getTotalFactura() {
+    public Long getTotalFactura() {
         return totalFactura;
     }
 
-    public void setTotalFactura(long totalFactura) {
+    public void setTotalFactura(Long totalFactura) {
         this.totalFactura = totalFactura;
     }
 
