@@ -3,59 +3,44 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.konrad.marketplace.entities;
+package co.edu.konrad.marketplace.dto;
 
-import java.io.Serializable;
+import co.edu.konrad.marketplace.entities.clienteEntity;
+import co.edu.konrad.marketplace.entities.tipoDocumentoEntity;
 import java.util.Date;
-import javax.persistence.*;
 
 /**
  *
- * @author Julian T.
+ * @author Ingenieria
  */
-@Entity
-public class clienteEntity  implements Serializable{
-     /*
-    *llave primaria 
-    */
-    @Id
-     @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name="id_Cliente")
-    private Long idCliente;
-    /*
-    *definicion de variable nombre del cliente
-    */
-    @Column(name = "nombre_cliente")
-    private String nombreCliente;
-    /*
-    *definicion de variable apellido del cliente
-    */
-    @Column(name = "apellido_cliente")
-    private String apellidoCliente;
-    /*
-    *definicion de variable fecha de nacimiento del cliente
-    */
-   
-    @Column (name = "fecha_nacimiento")
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date fecha_nacimiento;
-    /*
-    *definicion de variable numero de documento del cliente
-    */
-    @Column (name = "numero_documento")
-    private Long numero_documento;
-    /*
-    *definicion de variable foranea many to one tipoDocumento
-     */
-    @ManyToOne 
-    @JoinColumn (name = "tipoDocumento")
-    private tipoDocumentoEntity tipo_documento;
+public class clienteDTO {
+     private Long idCliente;
+     private String nombreCliente;
+     private String apellidoCliente;
+     private Date fecha_nacimiento;
+     private Long numero_documento;
+     private tipoDocumentoEntity tipo_documento;
 
-    public clienteEntity() {
+    public clienteDTO(clienteEntity cli) {
+        this.idCliente = cli.getIdCliente();
+        this.nombreCliente = cli.getNombreCliente();
+        this.apellidoCliente = cli.getApellidoCliente();
+        this.fecha_nacimiento = cli.getFecha_nacimiento();
+        this.numero_documento = cli.getNumero_documento();
+        this.tipo_documento = cli.getTipo_documento();
     }
-
-    
-    
+    public clienteEntity toEntity(){
+    clienteEntity cli =new clienteEntity();
+    cli.setIdCliente(idCliente);
+    cli.setNombreCliente(nombreCliente);
+    cli.setApellidoCliente(apellidoCliente);
+    cli.setFecha_nacimiento(fecha_nacimiento);
+    cli.setNumero_documento(numero_documento);
+    cli.setTipo_documento(tipo_documento);
+    return cli;
+    }
+     
+     
     public Long getIdCliente() {
         return idCliente;
     }
@@ -88,9 +73,6 @@ public class clienteEntity  implements Serializable{
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
-   
-    
-
     public Long getNumero_documento() {
         return numero_documento;
     }
@@ -106,6 +88,5 @@ public class clienteEntity  implements Serializable{
     public void setTipo_documento(tipoDocumentoEntity tipo_documento) {
         this.tipo_documento = tipo_documento;
     }
-    
-    
+     
 }
