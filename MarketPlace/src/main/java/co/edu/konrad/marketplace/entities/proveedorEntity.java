@@ -23,7 +23,7 @@ public class proveedorEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_proveedor")
-    private long idProveedor;
+    private Long idProveedor;
     /*
     *definicion de variable nombre proveedor 
      */
@@ -39,13 +39,14 @@ public class proveedorEntity implements Serializable {
     public proveedorEntity() {
     }
 
-    public long getIdProveedor() {
+    public Long getIdProveedor() {
         return idProveedor;
     }
 
-    public void setIdProveedor(long idProveedor) {
+    public void setIdProveedor(Long idProveedor) {
         this.idProveedor = idProveedor;
     }
+
 
     public String getNombreProveedor() {
         return nombreProveedor;
